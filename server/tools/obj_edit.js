@@ -44,3 +44,15 @@ export function nestedKeys = (obj, keysAndValues) => {
 	}
 	return keyResult;
 }
+
+export function nestedKeysIgnoreExist = (obj, keysAndValues) => {
+	/*
+	keyAndValues[0] = {
+		key: "key1.key2.key3",
+		value: val
+	}
+	*/
+	for (const elt of keysAndValues){
+		nestedKey(obj, elt.key, elt.value);
+	}
+}
