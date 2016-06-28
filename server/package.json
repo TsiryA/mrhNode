@@ -1,22 +1,45 @@
 {
   "name": "server",
   "version": "0.0.0",
+  "licence": "Tsiky Corporation",
+  "author": "Tsiry A. RADIASON & Tsiky Nancya Ericka RAKOTONIAINA",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./app/app.js",
+    "dev": "nodemon --exec babel-node src/app.js",
+    "build": "babel src --out-dir dist",
+    "prestart": "babel src --out-dir dist",
+    "default": "npm run build && node dist/app.js",
+    "default_start": "nodemon --exec ./app/app.js"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.13.4",
+    "gulp": "^3.9.1",
     "jade": "~1.11.0",
     "jstransformer": "^1.0.0",
+    "mongodb": "^2.1.18",
     "morgan": "~1.7.0",
+    "multer": "^1.1.0",
+    "nodemon": "^1.9.2",
     "pug": "^2.0.0-beta3",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.1.0"
+    "babel-cli": "^6.10.1",
+    "babel-eslint": "^6.1.0",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "gulp-live-server": "0.0.30",
+    "gulp-shell": "^0.5.2",
+    "gulp-watch": "^4.3.8",
+    "nodemon": "^1.9.2",
+    "rimraf": "^2.5.2",
+    "run-sequence": "^1.2.1"
   }
 }
