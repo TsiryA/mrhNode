@@ -4,14 +4,10 @@ var pageGenerator = require('../tools/pageGenerator.js')
 
 // public access
 // the login page
-router.get('/login', function (req, res, next) {
-	res.sender('./neutral/Login');
-});
+router.get('/login',(req, res, next) => res.sender('./neutral/Login'));
 
 // the registration page
-router.get('/register', function (req, res, next){
-	res.sender('./neutral/Register');
-});
+router.get('/register', (req, res, next) =>	res.sender('./neutral/Register'));
 
 // internal public page
 router.get('/:corporation/public/:pageName', Generator.publicPage);
