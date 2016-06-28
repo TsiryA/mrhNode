@@ -42,3 +42,7 @@ jspm_packages
 *.aux
 *.gz
 *.toc
+
+# we won't push compiled code
+dist
+server/app/
