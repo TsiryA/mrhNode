@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Welcome
+    link(rel='stylesheet', href='/stylesheets/base/styles.css')
+  body
+    block header
+      div#headbar.row
+        div#logo.col-md-1
+          img
+        div#name.col-md-1
+          span NAME
+        div#search-bar.col-md-8
+          div.row
+            div#input.col-md-10
+              input#search(type='text')
+            div#search-btn.col-md-2
+        div#redirections.col-md-2
+
+    block content
+    block footer

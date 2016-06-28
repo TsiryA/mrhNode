@@ -1,0 +1,46 @@
+\section{Node.Js Design Pattern}
+Chaque plateforme a sa propre manière de faire les choses et cela infule grandement sur l'evolution de la plateforme te de sa communauté.
+Pour Node.Js certaines des principes de conception vient des inventeurs de la plateforme, des contributeurs dans la construction du noyau, des personnes les plus importantes dans la communauté Node, et d'autres hérité par la culture du JavaScript ou influencé par la \textit{philosophie Unix}.
+\subsection{Coeur et Modules}
+\paragraph{Coeur}
+L'une des principes de Node est d'avoir le plus petit nombre de fonctionalité dans le coeur et de laisser le reste dans l'espace utilisateur. Cela a une grande impacte sur Node.Js car cela permet à la communauté de tester et d'avoir plusieurs solutions possibles au lieux d'une seule solution imposée. Ce principe engendre une evolution rapide du système, tout en enrichissant positivement la culture des divers intervenants.
+\paragraph{Modules}
+Les modules dont des bibliothèques de classe qui sont des extensions de Node.Js. La philosophie de Node.Js permet à des même modules mais de version différentes de cohabiter. Une fois installé \textit{localement} ou \textit{globalement} les modules sont accessibles par toutes les classes de votre application par la méthode \textit{require(...)}.
+\paragraph{installation de modules}
+L'installation des modules de node sefait généralement par le module \textbf{npm}, ce module a une verision déja présent dans chaque serveur Node.Js.
+Il y a deux manières d'installer un module.
+\begin{enumerate}
+	\item localement
+	\item globalement
+\end{enumerate}
+Bien que techniquement, il n'existe pas de différence de fonctionnement que l'on installe un module localement ou globalement. Certains modules doivent être installé globalement pour plus de liberté et assurer que l'application soit plus légère. Dans cette catégorie nous trouvons les générateurs d'applications, les compilateurs, les emulateurs, ...
+Tandis que les bibliothèques specifiques, indispensable au bon fonctionnement de l'application doit être installer localement.
+
+Les modules installé globalement utilisent la commande CLI
+\begin{lstlisting}[language=bash]
+	npm install -g [module_name]
+\end{lstlisting}
+
+Il y a divers manières d'installer localement les modules. Nous emploieront la technique la plus sure. Cette methode permet d'intsaller, de catégoriser et de se rappeler des modules installé. Dans les applications Node.Js il y a le ficher Package.json. Nous n'allons pas entrer dans les details mais voici un exemple de fichier de configuration d'un serveur Node.JS
+\begin{lstlisting}[style=htmlcssjs]
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
+    "jstransformer": "^1.0.0",
+    "morgan": "~1.7.0",
+    "pug": "^2.0.0-beta3",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.0"
+  }
+\end{lstlisting}
+Les \textit{dependencies} sont les modules necessaire pour le fonctionnement de l'application. Les modules catégorisé dans \textit{devDependencies} sont les modules utiles pendant la phase de developpement. Chaque module a pour argument la version exacte ou approximative à intsaller. Pour installer la dernière version \textit{stable} du module on place \textbf{"*"}
+une fois le \textit{package.json} bien éditer il suffit de taper la commande CLI suivante.
+\begin{lstlisting}[language=bash]
+	npm install 
+\end{lstlisting}
+Il installera alors tous les modules inscris dans le fichier de configuration dans un dossier \textbf{node modules}

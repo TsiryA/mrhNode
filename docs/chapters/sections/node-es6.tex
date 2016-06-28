@@ -1,0 +1,34 @@
+\section{Node.Js avec es6}
+\subsection{Initialisation}
+On commence par initialiser le ficher \textit{package.json}
+\begin{lstlisting}[language=bash]
+	npm init -y
+\end{lstlisting}
+Cela crée le fichier et introduit les valeurs par defauts tel que le non du projet qui par defaut est le nom du dossier qui le contient, la version, la description ...
+On intsalle par la suite les dependances de developpement.
+\begin{lstlisting}[language=bash]
+	npm i -D babel-cli babel-preset-2015 nodemon
+\end{lstlisting}
+on configure par la suite le module \textit{Babel} avec le fihier \textbf{.babelrc} en y inscrivant les lignes suivantes:
+\begin{lstlisting}[style=htmlcssjs]
+{
+	"presets": ["es2015"]
+}
+\end{lstlisting}
+
+\subsection{Minimal server}
+Une fois l'initialisation terminé on peut déja lancer un serveur minimal grace au code suivant.
+\begin{lstlisting}[style=htmlcssjs]
+import http from 'http';
+
+http.createServer((req, res) => {
+  res.writeHead(200, {'Content-type': "text/plain"});
+  res.end("Hello world\n");
+}).listen(3000, '127.0.0.1');
+
+console.log("server running at http://127.0.0.1:3000/");
+\end{lstlisting}
+Ensuite on place un script qui permet de lancer le mode developpement dans \textit{package.json}:
+\lstinputlisting[style=htmlcssjs, firstline=7, lastline=12]{../server/package.json}
+Utiliser \textit{nodemon} permet de modifier en \textit{live} le code du serveur et sera mis à jour et redemarre automatiquement.
+Le lancement \textit{build} est pour la production d'une version deployable de l'application. Pour pouvoir profiter de la version finale sans à avoir le lancer manuellement, on a le script \textit{default}

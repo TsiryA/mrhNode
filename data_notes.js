@@ -26,3 +26,5 @@ const personn = {
 		mail
 	}
 }
+
+npm install -g flow-bin

@@ -17,6 +17,7 @@ app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+// statics elements are stored in /../public
 app.use(express.static(__dirname + '/../public'));
 app.use(morgan('dev'));
 
