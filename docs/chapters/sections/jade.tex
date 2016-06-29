@@ -1,0 +1,12 @@
+\section{Jade}
+\textbf{Jade} est l'une des \textit{moteurs de vue} disponible dans express. Un moteur de vue signifie que c'est à lui de rendre une affichage final (vue html ici). Un moteur de vue se sert de \textbf{templates} ou \textbf{modèles} ce sont des fichiers qui représentent la forme du rendu. Ce sont en générale des fichiers ayant le même contenu que le rendu finale; toutes fois dans certains cas le moteur de vue utilise le \textbf{data binding} c'est à dire qu'il attache des données au \textit{modèles} avant de façoner le rendu.
+
+Jade est une sorte de mélange entre le langage \textit{html} et \textit{python}.
+\lstinputlisting[style=htmlcssjs]{../server/views/error.jade}
+On peut constater que dans Jade les imbications de balises se font par indentation mais que les balises restent les mêmes que dans du html pur. Cet exemple permet aussi de constater le \textit{data binding}.
+\begin{lstlisting}[style=htmlcssjs]
+	h2= error.status
+\end{lstlisting}
+Ce code signifie que cette balise contiendra les données dans l'attribut \textit{status} d'un objet \textit{error} avant d'être produit.
+La partie qui indique les données à attacher à ce modèle est la suivante:
+\lstinputlisting[style=htmlcssjs, firstline=44, lastline=47]{../server/src/app.js}
