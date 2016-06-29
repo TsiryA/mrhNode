@@ -1,21 +1,131 @@
 doctype html
-html
+html(lang='en')
   head
-    title Welcome
-    link(rel='stylesheet', href='/stylesheets/base/styles.css')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    title Managing | Comming Soon Page
+    link(href='https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,300italic,300|Raleway:300,400,600', rel='stylesheet', type='text/css')
+    // Bootstrap CSS
+    link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Custom CSS
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
   body
-    block header
-      div#headbar.row
-        div#logo.col-md-1
-          img
-        div#name.col-md-1
-          span NAME
-        div#search-bar.col-md-8
-          div.row
-            div#input.col-md-10
-              input#search(type='text')
-            div#search-btn.col-md-2
-        div#redirections.col-md-2
-
-    block content
-    block footer
+    .content
+      .container
+        .row
+          .logo.text-center
+            img(src='img/logo.png', alt='logo', width='150')
+            h2 We Are Baking Something New!! Comming Soon
+          #countdown(data-wow-delay='.3s', data-date='Dec 26, 2016 06:00:00')
+          h2.subs-title.text-center Subscribe now to get updates!!!
+          .subcription-info.text-center
+            form.subscribe_form(action='#', method='post')
+              input#email.email(required='', value='', placeholder='Enter your email...', name='email', type='email')
+              input.subscribe(name='email', value='Subscribe!', type='submit')
+            p.sub-p We Promise to never span you.
+      section
+        .container
+          .row.bort.text-center
+            .social
+              ul
+                li
+                  a(href='')
+                    i.fa.fa-facebook
+                li
+                  a(href='')
+                    i.fa.fa-twitter
+                li
+                  a(href='')
+                    i.fa.fa-linkedin
+      section#about.section-padding
+        .container
+          .row
+            .col-md-12.col-sm-12.text-center
+              .about-title
+                h2 About Us
+                p
+                  | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
+                  br
+                  | voluptatum deleniti atque corrupti quos dolores e
+              .col-md-3.col-sm-6.col-xs-12
+                .img
+                  i.fa.fa-refresh
+                h3.abt-hd Our process
+                p
+                  | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+              .col-md-3.col-sm-6.col-xs-12
+                .img
+                  i.fa.fa-eye
+                h3.abt-hd Our Vision
+                p
+                  | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+              .col-md-3.col-sm-6.col-xs-12
+                .img
+                  i.fa.fa-cogs
+                h3.abt-hd Our Approach
+                p
+                  | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+              .col-md-3.col-sm-6.col-xs-12
+                .img
+                  i.fa.fa-dot-circle-o
+                h3.abt-hd Our Objective
+                p
+                  | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+      #contact-info
+        .container
+          .row
+            .col-md-6
+              .contact-title
+                i.fa.fa-envelope
+                h2 Get in touch
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                  br
+                  | incididunt ut labore et dolore magna aliqua.
+            .contact.col-md-6
+              .col-md-10.col-md-offset-1(data-sr='wait 0.25s, then enter right and move 140px over 2s')
+                #note
+                #fields
+                  form(id='')
+                    input#name(name='name', placeholder='Name', value='', type='text')
+                    input#email(name='email', placeholder='Email', value='', type='email')
+                    textarea#msg(name='msg', placeholder='Message')
+                    input#submit(name='submit', value='Send', type='submit')
+    footer.footer
+      .container
+        .row.bort
+          .copyright
+            | Copyright © 2016 
+            a(href='http://github.com/TsiryA/mrhNode', target='_blank') Tsiky Corporation
+            | . All rights reserved.
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/jquery.countdown.min.js')
+    script(type='text/javascript').
+      if ($('#countdown').length) {
+        $('#countdown').countdown({
+          render: function(data) {
+            if (data.years >= 1) {
+              var $days = (data.years*365)+data.days;
+            } else {
+              var $days = data.days;
+            }
+            $(this.el).html(
+              '<div class="day">' + this.leadingZeros($days) + ' <span>Days</span></div>'+
+              '<div class="hour">' + this.leadingZeros(data.hours, 2) + ' <span>Hours</span></div>'+
+              '<div class="min">' + this.leadingZeros(data.min, 2) + ' <span>Minutes</span></div>'+
+              '<div class="sec">' + this.leadingZeros(data.sec, 2) + ' <span>Seconds</span></div>'
+            );
+          }
+        });
+      }
