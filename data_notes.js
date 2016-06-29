@@ -27,4 +27,4 @@ const personn = {
 	}
 }
 
-npm install -g flow-bin
+start en dev mode: npm run dev
