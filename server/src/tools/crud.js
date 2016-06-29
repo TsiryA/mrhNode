@@ -5,8 +5,10 @@ import es6Promise from 'es6-promise';
 const Promise = es6Promise.Promise;
 const ObjectID = mongodb.ObjectID;
 
+const operations = {}
+
 // ====================== CREATE =========================== //
-const create = {};
+operations.create = {};
 // collection
 create.collection = (collectionName, data) => {
   return new Promise( (resolve, reject) => {
@@ -34,7 +36,7 @@ create.collection = (collectionName, data) => {
 }
 
 // ===================== READ ============================= //
-const read = {}
+operations.read = {}
 // all element in collection
 read.all = collectionName => {
   return new Promise( (resolve, reject) => {
@@ -61,7 +63,7 @@ read.elements = (collectionName, eltSpec) => {
   });
 }
 // ===================== UPDATE ============================ //
-const update = {}
+operations.update = {}
 // overwritting data
 update.overwrite = (collectionName, eltSpec, eltUpdate) => {
   return new Promise( (resolve, reject) => {
@@ -106,7 +108,7 @@ update.addToSet = (collectionName, eltSpec, eltUpdate) => {
 }
 
 // ======================= DELETE =================== //
-const delete = {}
+operations.delete = {}
 // document
 delete.doc = (collectionName, data) => {
   return new Promise( (resolve, reject) => {
