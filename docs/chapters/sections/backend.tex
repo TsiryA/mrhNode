@@ -2,10 +2,32 @@
 Le coté serveur est celui dont les outils necessaires sont integré dans l'application lui même. Nous verons d'avantages à ce sujet dans la partie qui concerne la structure et les modules du serveur. Ce sont pour la majorité des traducteurs, des controlleurs et des surveillants. ls permettent de connaitre l'etat de l'application, les details de son fonctionnement et l'etat des fichiers qui composent l'application.
 Mis à part ces modules les applications suivantes sont installé indépendament.
 \subsection{Atom}
-Editeur de text libre
-\subsection{Curl}
-Générateur de requetes pour serveur. C'est un programme très utile pour simuler des requêtes pour le serveur. En effet certines requetes comme la methode \textit{POST} envoie des données contenu dans la requete. La meilleure façon de simuler ce genre d'actionest d'utiliser \textit{CURL}
+Le choix du meilleur editeur de text est toujours crutial pour un developpeur. Les editeurs de text se trouvent entre les éditeurs consoles (ex: vim) et les environnement de developpement \textbf{IDE} (Integrated Development Environment). Ils consomment moins d'espace et sont argumenté par des fonctionnalités (de base, facultatives) ce qui les rendent très utiles pour tous developpeur en général.
+
+Voila les bases de l'editeur de text \textit{Atom}:
+\begin{enumerate}
+	\item \textit{Open source}.
+	\item Similaire à Sublime Text.
+	\item Construit en utilisant les dernières technologies web (html5, JavaScript, CSS3).
+	\item livré avec un support Node.Js
+	\item Conception modulaire pour permettre à tous de personaliser au mieux l'editeur et de permettre une totale liberté sur les modules à integrer
+	\item interface permetant une agreable experience utilisateur
+	\item pris en charge de paquets et desextraits.
+	\item supporte le curseur multiple
+\end{enumerate}
+
+La vraie force de cet editeur est le fait d'être \textit{Open Source}. Il y a dans les 3 ou 4 mis à jours qui ont été effectué sur le code source principale d'Atom durant les 5 heures qui précèdent le moment actuel. Avec de nombreux developpeurs qui appuient ce projet, cela prend moins de temps pour ameliorer l'editeur et rajouter de nouvelles fonctionalités.
+
+Atom n'est pas parfait et a aussi quelques points faibles.
+\begin{itemize}
+	\item il est plus lent que Sublime Text.
+	\item toujour en cours de developpemment, ce qui signifie que vous n'est pas à l'abri de bugs eventuels.
+	\item il n'est pas possible d'ouvrir des fichier supérieur à 2Mb.
+\end{itemize}
+
+\subsection{cURL}
+cURL est un outil de ligne de commande open source pour transférer des données avec une syntaxe URL , soutenant DICT , FILE , FTP , FTPS , Gopher , HTTP , HTTPS , IMAP , IMAPS , LDAP , LDAPS , POP3 , POP3S , RTMP , RTSP , SCP , SFTP , SMB , SMTP , SMTPS , Telnet et TFTP . boucle prend en charge les certificats SSL, HTTP POST , PUT HTTP , le téléchargement FTP , les formulaire de base HTTP, proxy , HTTP / 2 , les cookies , user + password ( Basic , Plaine, Digest , CRAM- MD5 , NTLM , Negociate et Kerberos ) , tunnel proxy et plus encore.
 
 C'est un programme libre, disponible sur plusieurs plateforme: WIN, OSX, UNIX, ...
 
-Sur une plateforme windows les procédures d'installation, de paramètrage et d'utilisation sont lzs suivantes:
+Sur une plateforme windows les procédures d'installation, de paramètrage et d'utilisation sont les suivantes:
