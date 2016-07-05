@@ -151,3 +151,5 @@ delete.arrayElement =(collectionName, arraySpec, eltDelete) => {
     });
   });
 }
+
+export default operations;

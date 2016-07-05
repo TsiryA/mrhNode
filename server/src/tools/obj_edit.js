@@ -1,6 +1,8 @@
+const objEdit = {};
+
 // Functions used to manipulates objects
 
-export function testKeys = (obj, keypath) => {
+objEdit.estKeys = (obj, keypath) => {
 	// Return undefined if there is no keys
 	return keypath.split(".").reduce((o, x) => {
 		return (typeof o == "undefined" || o === null)?o : o[x];
@@ -9,7 +11,7 @@ export function testKeys = (obj, keypath) => {
 
 
 // add a single key
-export function nestedKey = (obj, keypath, value) => {
+objEdit.nestedKey = (obj, keypath, value) => {
 	// keypath = "key1.key2.key3.key4"
 	const keyArray = keypath.split(".");
 	const lastKeyIndex = keyArray.length - 1;
@@ -23,7 +25,7 @@ export function nestedKey = (obj, keypath, value) => {
 }
 
 // add multiple keys
-export function nestedKeys = (obj, keysAndValues) => {
+objEdit.nestedKeys = (obj, keysAndValues) => {
 	/*
 	keyAndValues[0] = {
 		key: "key1.key2.key3",
@@ -45,7 +47,7 @@ export function nestedKeys = (obj, keysAndValues) => {
 	return keyResult;
 }
 
-export function nestedKeysIgnoreExist = (obj, keysAndValues) => {
+objEdit.nestedKeysIgnoreExist = (obj, keysAndValues) => {
 	/*
 	keyAndValues[0] = {
 		key: "key1.key2.key3",
@@ -56,3 +58,6 @@ export function nestedKeysIgnoreExist = (obj, keysAndValues) => {
 		nestedKey(obj, elt.key, elt.value);
 	}
 }
+
+
+export default objEdit;
