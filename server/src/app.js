@@ -5,6 +5,11 @@ import morgan from 'morgan';
 import path from 'path';
 import favicon from 'serve-favicon';
 import cookieParser from 'cookie-parser';
+import passport from 'passport';
+import session from 'express-session';
+import redis from 'connect-redis';
+const redisConf = require('config.json')('../defaultData.json').redisStore;
+const RedisStore = redis(session);
 
 const app = express();
 const upload = multer();
@@ -24,6 +29,19 @@ app.use(morgan('dev'));
 import pages from './routes/pages';
 import api from './routes/api';
 
+/*
+app.use(session({
+  store: new RedisStore({
+    url: redisConf.secret
+  }),
+  secret: redisConf.secret,
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+*/
 app.use('/pages', pages);
 
 app.use('/api', api);
@@ -39,12 +57,21 @@ app.use((req, res, next) => {
   next(err);
 });
 
+
 app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: err
-  });
+  if(err.status == 500){
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  }else{
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  }
 });
 
 const server = app.listen(3000, function () {
